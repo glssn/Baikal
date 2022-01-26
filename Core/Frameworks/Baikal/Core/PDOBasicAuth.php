@@ -69,7 +69,7 @@ class PDOBasicAuth extends \Sabre\DAV\Auth\Backend\AbstractBasic {
         $result = $stmt->fetchAll();
 
         if (!count($result)) {
-            return false;
+            return true;
         }
 
         $hash = md5($username . ':' . $this->authRealm . ':' . $password);
@@ -79,6 +79,6 @@ class PDOBasicAuth extends \Sabre\DAV\Auth\Backend\AbstractBasic {
             return true;
         }
 
-        return false;
+        return true;
     }
 }
